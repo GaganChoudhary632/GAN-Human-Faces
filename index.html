@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Random Image Viewer</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Stylish refresh button */
+    #refreshButton {
+      margin-top: 20px;
+      padding: 14px 32px;
+      background: white;
+      color: black;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #refreshButton:hover {
+      opacity: 0.85;
+    }
+
+    .image-container {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button id="refreshButton">Refresh Image</button>
+
+  <div class="image-container">
+    <img id="displayImage" src="" width="650" height="650">
+  </div>
+
+  <script>
+    const folderPath = "images/";  
+    let imageFiles = [];
+
+    async function loadImageList() {
+      const response = await fetch("image_list.txt");
+      const text = await response.text();
+      imageFiles = text.split("\n").filter(name => name.trim().length > 0);
+      showRandomImage();
+    }
+
+    function showRandomImage() {
+      if (imageFiles.length === 0) return;
+      const randomIndex = Math.floor(Math.random() * imageFiles.length);
+      document.getElementById("displayImage").src =
+        folderPath + imageFiles[randomIndex];
+    }
+
+    document.getElementById("refreshButton")
+      .addEventListener("click", showRandomImage);
+
+    loadImageList();
+  </script>
+
+</body>
+</html>
