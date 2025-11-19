@@ -64,9 +64,9 @@ A minimal web viewer that loads a list of image filenames and displays a random 
 ## Sample images
 Below are two example images referenced from the `images/` folder. Replace or add your own images with the same names (or update `image_list.txt` accordingly):
 
-![Sample Image 1](images/sample1.jpg)
+![Sample Image 1](images/seed_10.png)
 
-![Sample Image 2](images/sample2.png)
+![Sample Image 2](images/seed_21.png)
 
 (If those files don't exist, add any two images named accordingly, or edit `image_list.txt` to match your filenames.)
 
@@ -98,3 +98,4 @@ This project is provided under the MIT License. See LICENSE (if present) or add 
 
 ## Contact / Notes
 - Designed for local demonstrations and experiments. If you plan to serve images publicly, verify appropriate usage rights for those images.
+
